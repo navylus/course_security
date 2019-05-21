@@ -16,5 +16,10 @@ _La région est ici mise sur EU/Paris_
 - mettre ce csv dans le dossier courant
 - Télécharger Terraform (terraform.io[https://www.terraform.io/] > Download)
 - mettre Terraform dans le dossier courant
+- créer plusieurs dossier avec le format suivant :
+  *live
+  *eu-west-3
+  *DataBase
+  *main.tf
 
 ### Le dossier courant réfère à un dossier créer pour stocker tous les fichiers utiles au déploiement
