@@ -21,5 +21,6 @@ _La région est ici mise sur EU/Paris_
   *eu-west-3
   *DataBase
   *main.tf
+- depuis le dossier DataBase lancer dans un terminal _terraform init_
 
 ### Le dossier courant réfère à un dossier créer pour stocker tous les fichiers utiles au déploiement
