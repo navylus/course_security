@@ -48,6 +48,7 @@ resource "aws_security_group" "allow_tls" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
+    cidr_blocks = ["172.2.0.0/16"]
   }
   tags = {
     Name = "allow_all"

@@ -1,0 +1,56 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": ""
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "eu-west-3",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
+          "root-device-type": "ebs"
+        },
+        "owners": ["099720109477"],
+        "most_recent": true
+      },
+      "instance_type": "t2.micro",
+      "ssh_username": "ubuntu",
+      "ami_name": "packer-example-{{timestamp}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": ["sudo apt-get -y update"]
+    },
+    {
+      "type": "shell",
+      "inline": ["sudo apt-get -y install git"]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get -y update",
+        "wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz",
+        "sudo tar -xvf go1.11.linux-amd64.tar.gz",
+        "sudo mv go /usr/local",
+        "rm go1.11.linux-amd64.tar.gz",
+        "export GOROOT=/usr/local/go",
+        "export GOPATH=$HOME/go",
+        "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH",
+        "sudo apt-get -y install git-core",
+        "mkdir -p ~/go/src/douglasmakey",
+        "cd ~/go/src/douglasmakey",
+        "git clone https://github.com/douglasmakey/ursho",
+        "cd ursho",
+        "go get",
+        "go build"
+      ]
+    }
+  ]
+}
