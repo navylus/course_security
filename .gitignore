@@ -4,3 +4,5 @@ accessKeys\.csv
 live/eu-west-3/DataBase/\.env
 
 live/eu-west-3/DataBase/\.terraform/
+
+live/eu-west-3/Bastion/\.terraform/
