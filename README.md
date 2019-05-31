@@ -61,3 +61,4 @@ _La région est ici mise sur EU/Paris (eu-west-3)_
 - Verifier que l'application tourne bien sur l'ip trouvé à l'étape d'avant avec le port 8080 ( X.X.X.X:8080 )
 
 ### Le dossier courant réfère à un dossier créer pour stocker tous les fichiers utiles au déploiement
+### Ce document à été écrit avec comme version Terraform=0.11.14 et Packer=1.4.1
